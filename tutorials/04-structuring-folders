@@ -1,0 +1,9 @@
+É  bem errado deixar tudo no arquivo principal.
+
+Para as rotas vamos criar ./src/routes.js e depois condigurar no server.js
+
+Agora ainda nas rotas, vamos organizar a lógica das rotas.
+Dentro da arquitetura MVC, essa lógica seria o controller.
+Então vamos criar ./src/controllers/ProductController.js que vai ter a lógica
+do CRUD de nossos produtos.
+

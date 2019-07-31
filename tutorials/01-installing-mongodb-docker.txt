@@ -1,0 +1,65 @@
+Primeiramente vamos instalar o Docker-toolbox.
+Primeiramente abra o terminal do Docker para instalar algumas dependencias,
+senão não vai dar pra instalar nada.
+Para ver se se foi instalado digita docker no terminal.
+
+Instalar o MongoDB no Docker.
+ - Precisaremos baixar o container do MongoDB (faça tudo no terminal do Docker)
+  > docker pull mongo
+
+Depois de instalado, precisamos SUBIR o container contendo esta instalação rodando:
+ > docker run --name mongodb -p 27017:27017 -d mongo
+--name: como eu quero chamar esta máquina ou container dentro do meu sistema
+-p: Como o MongoDB vai estar rodando em outro sistema, e não no nosso Windows
+    precisaremos fazer o redirecionamento de porta. O MongDB usa a porta 27017
+    e precisaremos falar que todas as vezes que tentarmos acessar a porta 27017
+    da nossa máquina, ele redirecione para a porta 27017 do MongoDB instalado
+    neste container. À esquerda do : seria quando forem acessar a porta da minha
+    máquina real, à direita seria qual a porta deve ser redirecionada no container.
+-d: Seria qual a imagem que queremos utilizar 
+
+Retornará uma hash. Dê o comando 
+> docker ps
+Para verificar as imagens que estão rodando.
+> docker ps -a
+Para verificar todas as imagens rodando e não rodando.
+> docker start <nome-imagem>
+Para subir uma máquina
+
+Para testarmos, podemos acessar pelo navegador o http://localhost:27017. 
+Deveria retornar alguma mensagem em texto 
+(It looks like you are trying to access MongoDB over HTTP on the native driver port.). 
+Se não retornar, temos que fazer algumas configurações no VirtualBox:
+- Open up VirtualBox.
+- Right click the "Default" machine.
+- Select settings from the menu.
+- Choose the Network tab in the settings menu.
+- Choose port forwarding at the bottom of the network option.
+- Click the plus icon to the right of the port forwarding menu.
+- Make the new entry with the name mongo.
+- Protocol should be TCP.
+- Host and Guest IP can be left empty.
+- Set the host port to whatever you want, I used 27017.
+- Set the guest port to 27017.
+(Source: https://codehangar.io/mongodb-image-instance-with-docker-toolbox-tutorial/)
+
+Agora tente acessar novamente http://localhost:27017.
+
+Vamos instalar o Robo 3T, que seria uma interface com o MongoDB.
+Não precisa instalar o Studio, pode ser o simples.
+Informe os dados de conexão.
+
+Agora está OK. Não se preocupe de criar a base de dados, vamos deixar que o Node
+faça isso.
+
+===============================
+CONECTANDO O NODE NO MongoDB
+===============================
+
+TEmos que baixar uma dependência de produção: > npm install mongoose
+
+Mongoose é um ORM de BD não relacionais.
+- ORM encapsula a lógica de BD aravés do código, ou seja, ao invés de usar a linguagem do BD
+iremos utilizar apenas código JS pra CRUD.
+
+ 

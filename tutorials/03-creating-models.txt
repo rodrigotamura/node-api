@@ -1,0 +1,11 @@
+Models no modelo MVC seria a tabela no BD.
+
+1. Vamos criar a pasta ./src/models/Product.js (note a caixa alta, singular e ingles)
+2. Após criado o arquivo acima, definido o schema e registrado a Model, temos que
+   importar lá no nosso arquivo principal (server.js neste caso)
+
+Se tivéssemos muitos Models na nossa aplicação existe uma técnica que é utilizar uma
+biblioteca chamada require-dir:
+> npm install require-dir
+Esta lib vai fazer o papel de require em um diretorio em todos os arquivos automaticamente,
+pra não ficarmos dando require no nosso arquivo principal e poluindo o mesmo.
