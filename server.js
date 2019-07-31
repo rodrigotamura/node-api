@@ -1,12 +1,18 @@
 const express = require('express'); // instanciando o Express
 const mongoose = require('mongoose'); // instanciando o Mongoose
 const requireDir = require('require-dir'); // require-dir
+const cors = require('cors'); // CORS
 
 // Iniciando o App
 const app = express();
 
 // permitir que envie dados no formato JSON para nossa app
 app.use(express.json());
+
+// permitir agora acesso de outras fontes
+app.use(cors());
+// podemos passar como parâmetro quais os domínios que terão acesso a esse app
+// mas neste caso vamos deixar aberto.
 
 // Iniciando o Mongo
 mongoose.connect('mongodb://localhost:27017/nodeapi', { useNewUrlParser: true })

@@ -1,0 +1,8 @@
+Até agora o nosso aplicativo só está aceitando conexão local, não aceitando acesso de outra host.
+
+Caso queiramos que esta aplicação funcione em outro endereço, temos que implementar o CORS (cross access origin secure)
+
+Para tal precisaremos instalar a lib cors
+> npm install cors
+
+Logo após teremos que importar e implementar na nossa app pelo arquivo principal (server.js)
