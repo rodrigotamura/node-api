@@ -26,5 +26,9 @@ routes.get('/', (req, res) => {
 const Products = require('./controllers/ProductController');
 
 routes.get('/products', Products.index);
+routes.post('/products', Products.store);
+routes.get('/products/:id', Products.show);
+routes.put('/products/:id', Products.update);
+routes.delete('/products/:id', Products.destroy);
 
 module.exports = routes; // para ser importado no nosso server.js

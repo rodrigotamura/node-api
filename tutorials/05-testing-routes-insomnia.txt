@@ -1,0 +1,2 @@
+Vamos baixar um programa que nos possibilitará testar as rotas: Insomnia
+(deve ser uma especie de Postman)

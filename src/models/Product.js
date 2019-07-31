@@ -1,6 +1,8 @@
 // precisamos falar qual o schema desta model (quais campo e tipos de valores)
 const mongoose = require('mongoose');
 
+const mongoosePaginate = require('mongoose-paginate');
+
 const ProductSchema = new mongoose.Schema({
     // quais os campos
     title: { 
@@ -20,6 +22,8 @@ const ProductSchema = new mongoose.Schema({
         default: Date.now
     }
 });
+
+ProductSchema.plugin(mongoosePaginate); // implementando o paginate
 
 mongoose.model('Product', ProductSchema); // registra o Model na app
 
